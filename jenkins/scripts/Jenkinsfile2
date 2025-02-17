@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(defaultValue: "",description:"Deployment name",name: 'deploymentName')
+        choice(choices: ["EU_WEST_2A","EU_WEST_2B","EU_WEST_2C"], description: 'WWhat AZ',name: "azDeploy" )
+        booleanParam(defaultValue:false, description: "CONFIRM DEPLOYMENT", name: "CONFIRMDEPLOY")
+    }
+
+    stages {
+        stage("Deploy") {
+            steps {
+                echo "String set to  ${deploymentName} \n"
+                echo "choice set to  ${azDeploy} \n"
+                echo "String set to  ${confirmDeploy} \n"
+            }
+        }
+    }
+}
